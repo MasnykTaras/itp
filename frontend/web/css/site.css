@@ -1,0 +1,6 @@
+.subscribe__form .subscribe__mail{
+    color: #000;
+}
+.publications__item:nth-of-type(2n) .post__link .post__preview .post__date{
+	width: 32%;
+}
