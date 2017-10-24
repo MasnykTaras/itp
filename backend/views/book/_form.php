@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use backend\models\BookCategory;
 use yii\helpers\ArrayHelper;
-use backend\models\Post;
+use backend\models\Book;
 
 
 /* @var $this yii\web\View */
@@ -21,12 +21,16 @@ use backend\models\Post;
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
-
+    <?php if($model->id){ ?>
+        <?= Html::tag('p', Book::getCurrentFile($model->id)[0]) ?>
+    <?php } ?>
     <?= $form->field($model, 'file')->fileInput() ?>
-
+    <?php if($model->id){ ?>
+        <?= Html::img('/uploads/' . Book::getCurrentImage($model->id)[0], ['alt' => 'Image']) ?>
+    <?php } ?>
     <?= $form->field($model, 'image')->fileInput() ?>
 
-    <?= $form->field($model, 'status')->dropDownList(ArrayHelper::map(Post::getStatus(),'id','title')) ?>
+    <?= $form->field($model, 'status')->dropDownList(ArrayHelper::map(Book::getStatus(),'id','title')) ?>
 
     <?= $form->field($model, 'book_category_id')->dropDownList(ArrayHelper::map(BookCategory::getCategory(),'id','title')); ?> 
 

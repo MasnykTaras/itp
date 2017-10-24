@@ -41,12 +41,25 @@ class Category extends ActiveRecord
             'title' => 'Title',
         ];
     }
+    /**
+     * Get category
+     * @return array
+     */
     public static function getCategory()
     {
-        return Category::find()->all(); 
+        return self::find()->all(); 
     }
+    /**
+     * Get category 
+     * @param int $id 
+     * @return array
+     */
     public static function getOneCategory($id)
     {       
-       return Category::find()->where(['id' => $id ])->one();
+        
+        return  Yii::$app->db
+                ->createCommand('SELECT title FROM category WHERE id = :id')
+                ->bindValue(':id', $id)
+                ->queryColumn();
     }
 }

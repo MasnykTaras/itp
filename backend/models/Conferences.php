@@ -3,28 +3,29 @@
 namespace backend\models;
 
 use Yii;
-use \yii\db\ActiveRecord;
 
 /**
- * This is the model class for table "post".
+ * This is the model class for table "Conferences".
  *
  * @property int $id
  * @property string $title
  * @property string $content
  * @property int $user_id
  * @property string $created
- * @property int $category_id
+ * @property string $start_in
  * @property int $status
  * @property string $image
  */
-class Post extends ActiveRecord
+class Conferences extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
+ 
+
     public static function tableName()
     {
-        return 'post';
+        return 'Conferences';
     }
 
     /**
@@ -33,10 +34,12 @@ class Post extends ActiveRecord
     public function rules()
     {
         return [
+            [['user_id', 'status'], 'integer'],            
+            [['title',], 'string', 'max' => 255],
             [['content'], 'string'],
-            [['user_id', 'category_id', 'status'], 'integer'],
+            [['image'], 'image', 'extensions' => 'png, jpg'],
             [['created'], 'default', 'value' => date("Y-m-d H:i:s")],
-            [['title', 'image'], 'string', 'max' => 255],
+            [['start_in'], 'default', 'value' => date("Y-m-d")],
         ];
     }
 
@@ -51,22 +54,14 @@ class Post extends ActiveRecord
             'content' => 'Content',
             'user_id' => 'User ID',
             'created' => 'Created',
-            'category_id' => 'Categoty ID',
+            'start_in' => 'Start In',
             'status' => 'Status',
             'image' => 'Image',
         ];
-    }  
-
-    public function getFolderImage()
+    }
+    public  function getFolderImage()
     {
         return Yii::getAlias('@frontend') . '/web/uploads/';
-    }
-
-    public static function shortContent($content)
-    {
-        $content = substr(strip_tags($content), 0, 600) . '...';
-
-        return  $content;
     }
     public static function getStatus()
     {
@@ -77,11 +72,10 @@ class Post extends ActiveRecord
     }
     public static function getCurrentImage($id)
     {
-
         return Yii::$app->db
-                ->createCommand('SELECT image FROM post WHERE id = :id')
+                ->createCommand('SELECT image FROM conferences WHERE id = :id')
                 ->bindValue(':id', $id)
                 ->queryColumn();
-        // return Post::find()->select(['image'])->where([ 'id' => $id ])->column();
+        // return self::find()->select(['image'])->where([ 'id' => $id ])->column();
     }
 }

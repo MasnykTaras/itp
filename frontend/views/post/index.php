@@ -1,5 +1,5 @@
 <?php 
-  use app\models\Post;
+
   use yii\helpers\Url;
   use yii\widgets\LinkPager;
 ?>
@@ -23,22 +23,7 @@
                 <ul class="publications__dropdown dropdown">
                   <li class="dropdown__item js-sortItemDropdown">
                     <a class="dropdown__link dropdown__link_big" href="#">04.2017</a>
-                  </li>
-                  <li class="dropdown__item js-sortItemDropdown">
-                    <a class="dropdown__link dropdown__link_big" href="#">03.2017</a>
-                  </li>
-                  <li class="dropdown__item js-sortItemDropdown">
-                    <a class="dropdown__link dropdown__link_big" href="#">02.2017</a>
-                  </li>
-                  <li class="dropdown__item js-sortItemDropdown">
-                    <a class="dropdown__link dropdown__link_big" href="#">01.2017</a>
-                  </li>
-                  <li class="dropdown__item js-sortItemDropdown">
-                    <a class="dropdown__link dropdown__link_big" href="#">12.2016</a>
-                  </li>
-                  <li class="dropdown__item js-sortItemDropdown">
-                    <a class="dropdown__link dropdown__link_big" href="#">11.2016</a>
-                  </li>
+                  </li>                  
                 </ul>
               </div>
             </div>
@@ -50,13 +35,13 @@
                 <a href="<?= Url::toRoute(['post/one', 'id' => $post->id]); ?>" class="post__link">
                   <div class="post__preview">
                     <div class="post__img">
-                      <img src="<?='/uploads/' . $post->image; ?>" alt="img">
+                      <img src="<?= '/uploads/' . $post->image; ?>" alt="img">
                     </div>
-                    <span class="post__date"><?= Post::dateView($post->created); ?></span>
+                    <span class="post__date"><?= $post->dateView($post->created); ?></span>
                   </div>
                   <h3 class="post__title"><?= $post->title; ?></h3>
                 </a>                
-                  <p class="post__text"><?= Post::shortContent($post->content); ?></p>                             
+                  <p class="post__text"><?= $post->shortContent($post->content); ?></p>                             
               </div>
           	<?php endforeach; ?>
             </div>

@@ -1,5 +1,5 @@
 <?php
-
+ 
 namespace frontend\controllers;
 
 use Yii;
@@ -17,7 +17,12 @@ class PostController extends Controller
     {	
         $query = Post::find()->where(['status' => 1]);
         $countQuery = clone $query;
-        $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 3]);
+        $pages = new Pagination([
+            'totalCount' => $countQuery->count(), 
+            'defaultPageSize' => 3,            
+            'pageSize' => 3,
+            'forcePageParam' => false, 
+            ]);
         $models = $query->offset($pages->offset)->limit($pages->limit)->all();
     	$posts = new Post;
         return $this->render('index', ['posts' =>  $models, 'pages' => $pages, ]);

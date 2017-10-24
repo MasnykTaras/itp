@@ -17,8 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Download image', ['download-image', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>       
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
@@ -38,7 +37,8 @@ $this->params['breadcrumbs'][] = $this->title;
            <div class="panel-body">
                 
                <p><b>Title: </b> <?=$model->title; ?> <br><b>Created:</b> <?=$model->created; ?> </p>
-               <p><b>Category: </b><?=Category::getOneCategory($model->category_id)->title;?> </p>
+      
+               <p><b>Category: </b><?= Category::getOneCategory($model->category_id)[0]; ?> </p>
 
                <div><div style="background:url(/uploads/<?= $model->image; ?>)no-repeat;background-size:cover;width:300px; height:300px;float: left;"></div></div>
                 <div style="float: left; width: 65%;padding-left: 30px;">

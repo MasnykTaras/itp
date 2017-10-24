@@ -19,6 +19,7 @@ use yii\db\ActiveRecord;
  */
 class Post extends ActiveRecord
 {
+    
     /**
      * @inheritdoc
      */
@@ -49,7 +50,7 @@ class Post extends ActiveRecord
      */
     public static function viewAll()
     {        
-     return Post::find()->all();   
+     return self::find()->all();   
     }
      /**
      * Lists all Post models.
@@ -57,26 +58,47 @@ class Post extends ActiveRecord
      */
     public static function viewOne($id)
     {
-        return Post::find()->where(['id' => $id ])->one();
+        return self::find()->where(['id' => $id ])->one();
     }
      /**
       * Get created data without time
       * @param str $date 
       * @return str
       */
-    public static function dateView($date)
+    public function dateView($date)
     {
         $date = explode(' ', $date);
         return $date[0]; 
     }
-    public static function shortContent($content)
+    /**
+     * Get short content
+     * @param str $content 
+     * @return str
+     */
+    public function shortContent($content)
     {
-        $content = substr(strip_tags($content), 0, 300) . '...';
-
-        return  $content;
+        return  substr(strip_tags($content), 0, 300) . '...';
     }
+    /**
+     * Get new post on main page 
+     * @return array
+     */
     public function getNewPost()
     {
-        return Post::find()->where([ 'status' => 1 ])->orderBy('created')->limit(6)->all();
+        return self::find()->where([ 'status' => 1 ])->orderBy('created')->limit(6)->all();
+    }
+    public function getNextId($id)
+    {
+        $record = self::find()->where( "id > $id" )->limit(1)->one();
+        if($record!==null)
+            return $record->id;
+        return null;
+    }
+    public function getPreviousId($id)
+    {
+        $record = self::find()->where( "id < $id" )->orderBy('id DESC')->limit(1)->one();
+        if($record!==null)
+            return $record->id;
+        return null;
     }
 }

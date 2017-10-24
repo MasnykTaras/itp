@@ -40,6 +40,10 @@ class BookCategory extends \yii\db\ActiveRecord
             'title' => 'Title',
         ];
     }
+    /**
+     * Get category 
+     * @return array
+     */
     public static function getCategory()
     {
         return BookCategory::find()->all(); 

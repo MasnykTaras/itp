@@ -18,7 +18,7 @@
           <div class="postSingle__content">
             <div class="postSingle__img">
               <img src="../../img/conference/post-single-img.png" alt="img">
-              <span class="postSingle__date"><?= Post::dateView($post->created); ?></span>
+              <span class="postSingle__date"><?= $post->dateView($post->created); ?></span>
             </div>
             <h2 class="postSingle__title"><?= $post->title;?></h2>
             <div class="postSingle__text">
@@ -63,18 +63,23 @@
           <li class="lines__item"></li>
         </ul>
         <div class="l-content">
+
           <div class="postSwitcher__content">
-            <div class="postSwitcher__item">
+            <div class="postSwitcher__item"> 
+              <?php if($post->getPreviousId($post->id)): ?>                  
               <span>Предыдущая</span>
-              <a class="postSwitcher__link" href="<?= Url::toRoute(['post/one', 'id' => $post->id-1]); ?>">
-                <h2>Научная конференция по сопряжению</h2>
-              </a>
+                <a class="postSwitcher__link" href="<?= Url::toRoute(['post/one', 'id' => $post->getPreviousId($post->id)]); ?>"> 
+                  <h2><?= $post->viewOne($post->getPreviousId($post->id))->title; ?></h2>
+                </a>
+              <?php endif; ?>
             </div>
             <div class="postSwitcher__item">
+              <?php if($post->getNextId($post->id)): ?>
               <span>Следующая</span>
-              <a class="postSwitcher__link" href="<?= Url::toRoute(['post/one', 'id' => $post->id+1]); ?>">
-                <h2>Разработка новых видов бетонов</h2>
+              <a class="postSwitcher__link" href="<?= Url::toRoute(['post/one', 'id' => $post->getNextId($post->id)]); ?>"> 
+                <h2><?= $post->viewOne($post->getNextId($post->id))->title; ?></h2>
               </a>
+            <?php endif; ?>
             </div>
           </div>
         </div>

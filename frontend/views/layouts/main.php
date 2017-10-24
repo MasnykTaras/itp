@@ -40,7 +40,7 @@ AppAsset::register($this);
         <div class="l-content">
           <nav class="nav">
             <a class="nav__logo" href="/">
-              <img src="img/logo.svg" alt="ИТП">
+              <img src="/img/logo.svg" alt="ИТП">
             </a>
             <?php   
                 $menuItems = [
@@ -60,8 +60,8 @@ AppAsset::register($this);
                         ]
                     ],
                     ['label' => 'Публикации', 'url' => ['/post/index']],
-                    ['label' => 'Литература', 'url' => ['/site/book']],
-                    ['label' => 'Конференции', 'url' => ['/post/index']],
+                    ['label' => 'Литература', 'url' => ['/book/index']],
+                    ['label' => 'Конференции', 'url' => ['/conference/index']],
                     ['label' => 'Контакты', 'url' => ['/site/contact']]
                 ]; 
                 echo Menu::widget([
@@ -93,7 +93,7 @@ AppAsset::register($this);
 
 <footer class="footer">
       <div class="l-container">
-        <a href="index.html"><img src="img/logo-hexagon.svg" alt="logo" class="footer__logo"></a>
+        <a href="index.html"><img src="/img/logo-hexagon.svg" alt="logo" class="footer__logo"></a>
         <?php   
             $menuItems = [
                 ['label' => 'Об институте', 'url' => ['/site/about'], 'options' => ['class' => 'menu__item']],
@@ -111,9 +111,9 @@ AppAsset::register($this);
                             'template' => '<a class="dropdown__link" href="{url}">{label}</a>'],
                     ]
                 ],
-                ['label' => 'Публикации', 'url' => ['/site/post']],
-                ['label' => 'Литература', 'url' => ['/site/book']],
-                ['label' => 'Конференции', 'url' => ['/site/post']],
+                ['label' => 'Публикации', 'url' => ['/post/index']],
+                ['label' => 'Литература', 'url' => ['/book/index']],
+                ['label' => 'Конференции', 'url' => ['/conference/index']],
                 ['label' => 'Контакты', 'url' => ['/site/contact']]
             ]; 
             echo Menu::widget([

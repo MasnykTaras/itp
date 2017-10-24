@@ -6,6 +6,7 @@ use yii\bootstrap\ActiveForm;
 use yii\widgets\Pjax;
 use yii\helpers\Url;
 use app\models\Post;
+use app\models\Book;
 
 $this->title = 'My Yii Application';?>
 
@@ -66,11 +67,11 @@ $this->title = 'My Yii Application';?>
                                     <div class="post__img">
                                       <img src="<?='/uploads/' . $post->image; ?>" alt="img">
                                     </div>
-                                    <span class="post__date"><?= Post::dateView($post->created); ?></span>
+                                    <span class="post__date"><?= $post->dateView($post->created); ?></span>
                                 </div>
                                 <h3 class="post__title"><?= $post->title; ?></h3>
                             </a>
-                            <p class="post__text"><?= Post::shortContent($post->content); ?></p>
+                            <p class="post__text"><?= $post->shortContent($post->content); ?></p>
                         </div>
                       <?php endforeach;?>
                     </div>
@@ -96,31 +97,31 @@ $this->title = 'My Yii Application';?>
 
              
               <?php $count = 0; ?>
-              <?php foreach($books as $book):?>
+              <?php foreach($books as $book): ?>
                 <?php if($count == 0):?>
                   <li class="literature__item literature__item_big">
-                    <a href="literature.html" class="literature__title">Литература</a>
-                    <a href="html/books/book.html" class="literature__book book book_light">
+                    <a href="<?= Url::toRoute(['book/index']); ?>" class="literature__title">Литература</a>
+                    <a href="<?= Url::toRoute(['book/one', 'id' => $book['id']]); ?>" class="literature__book book book_light">
                       <div class="book__img book__img_big">
-                        <img src="img/literature-single.png" alt="book">
+                        <img src="<?='/uploads/' . $book['image']; ?>" alt="book">
                       </div>
-                      <h4 class="book__title"><?= $book->title;?></h4>
+                      <h4 class="book__title"><?= $book['title'];?></h4>
                       <div class="book__info">
-                        <span class="book__type">PDF </span>
-                        <span class="book__size">21.1 МБ</span>
+                        <span class="book__type"><?= Book::getFileInfo($book['file'])['type']; ?></span>
+                        <span class="book__size"><?= Book::getFileInfo($book['file'])['size']; ?></span>
                       </div>
                     </a>
                   </li>
                 <?php else:?>
                   <li class="literature__item">
-                    <a href="html/books/book.html" class="book">
+                    <a href="<?= Url::toRoute(['book/one', 'id' => $book['id']]); ?>" class="book">
                       <div class="book__img">
-                        <img src="img/literature.png" alt="book">
+                        <img src="<?='/uploads/' . $book['image']; ?>" alt="book">
                       </div>
-                      <h4 class="book__title"><?= $book->title;?></h4>
+                      <h4 class="book__title"><?= $book['title'];?></h4>
                       <div class="book__info">
-                        <span class="book__type">PDF </span>
-                        <span class="book__size">21.1 МБ</span>
+                        <span class="book__type"><?= Book::getFileInfo($book['file'])['type']; ?></span>
+                        <span class="book__size"><?= Book::getFileInfo($book['file'])['size']; ?></span>
                       </div>
                     </a>
                   </li>

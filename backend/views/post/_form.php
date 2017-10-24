@@ -17,7 +17,7 @@ use yii\helpers\ArrayHelper;
 
     <?php $form = ActiveForm::begin(); ?>
 
-     <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
+     <?= $form->field($model, 'image')->fileInput() ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 

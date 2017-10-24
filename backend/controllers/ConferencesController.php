@@ -3,23 +3,23 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Post;
-use backend\models\PostSearch;
+use backend\models\Conferences;
+use backend\models\ConferencesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use backend\models\UploadForm;
 use yii\web\UploadedFile;
-use yii\filters\AccessControl;
 
 /**
- * PostController implements the CRUD actions for Post model.
+ * ConferencesController implements the CRUD actions for Conferences model.
  */
-class PostController extends Controller
+class ConferencesController extends Controller
 {
     /**
      * @inheritdoc
      */
+  
+
     public function behaviors()
     {
         return [
@@ -29,35 +29,16 @@ class PostController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'actions' => ['login', 'error'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['delete'],
-                        'allow' => true,
-                        'roles' => ['admin'],
-                    ],
-                    [                        
-                        'allow' => true,
-                        'roles' => ['admin', 'moder'],
-                    ],
-                ],
-            ],
         ];
     }
 
     /**
-     * Lists all Post models.
+     * Lists all Conferences models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new PostSearch();
+        $searchModel = new ConferencesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -67,7 +48,7 @@ class PostController extends Controller
     }
 
     /**
-     * Displays a single Post model.
+     * Displays a single Conferences model.
      * @param integer $id
      * @return mixed
      */
@@ -79,30 +60,32 @@ class PostController extends Controller
     }
 
     /**
-     * Creates a new Post model.
+     * Creates a new Conferences model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Post();
-
+        $model = new Conferences();
+ 
         if ($model->load(Yii::$app->request->post())) {
             if(UploadedFile::getInstance($model, 'image')){
                 $model->image = UploadedFile::getInstance($model, 'image');
+
                 $model->image->saveAs($model->getFolderImage() . $model->image->name);
-                $model->image = $model->image->name;
+
+                $model->image = $model->image->name; 
             }else{
                 return $this->render('create', [
-                    'model' => $model,
+                 'model' => $model,
                 ]);
             }
-            
+           
             $model->user_id = Yii::$app->user->identity->id;
-
             $model->save();
 
             return $this->redirect(['view', 'id' => $model->id]);
+
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -111,7 +94,7 @@ class PostController extends Controller
     }
 
     /**
-     * Updates an existing Post model.
+     * Updates an existing Conferences model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -121,17 +104,22 @@ class PostController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
+
             if(!empty(UploadedFile::getInstance($model, 'image'))){
-                $model->image = UploadedFile::getInstance($model, 'image');                   
+                $model->image = UploadedFile::getInstance($model, 'image');
                 $model->image->saveAs($model->getFolderImage() . $model->image->name);
                 $model->image = $model->image->name;
             }else{
-               $model->image = Post::getCurrentImage($model->id)[0]; 
+                $model->image = Conferences::getCurrentImage($model->id)[0];
             }
-
+            // var_dump($model);
+            // die;
+            // $model->start_in = $model->start_in;
+            
             $model->save();
-
+           
             return $this->redirect(['view', 'id' => $model->id]);
+
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -140,7 +128,7 @@ class PostController extends Controller
     }
 
     /**
-     * Deletes an existing Post model.
+     * Deletes an existing Conferences model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -153,15 +141,15 @@ class PostController extends Controller
     }
 
     /**
-     * Finds the Post model based on its primary key value.
+     * Finds the Conferences model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Post the loaded model
+     * @return Conferences the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Post::findOne($id)) !== null) {
+        if (($model = Conferences::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

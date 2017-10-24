@@ -15,7 +15,7 @@ return [
             'class' => 'yii\redactor\RedactorModule',
             'uploadDir' => '@frontend/web/uploads',
             'imageAllowExtensions'=>['jpg','png','gif']
-        ],
+        ],        
     ],
     'components' => [
         'request' => [
@@ -42,13 +42,13 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        'request' => [
-            'baseUrl' => '',
-        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableStrictParsing' => false,
             'rules' => [
+                '' => 'site/index',                                
+                '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
             ],
         ],
         

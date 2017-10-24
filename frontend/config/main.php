@@ -13,6 +13,7 @@ return [
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
+            'baseUrl' => '',
             'csrfParam' => '_csrf-frontend',
         ],
         'user' => [
@@ -36,16 +37,16 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        'request' => [
-            'baseUrl' => '',
-        ],
-        'urlManager' => [
+            'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableStrictParsing' => false,
             'rules' => [
-               
-                '<alias:index|about|contact|book|login|signup>' => 'site/<alias>',          
-                'post/<id:(\d+)>' => 'post/one',
+                // '' => 'site/index',                                
+                // '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
+                // '<alias:index|about|contact|book|login|signup>' => 'site/<alias>',          
+                // 'post/<id:(\d+)>' => 'post/one', 
+                // 'conference/<date:(\d+)>' => 'conference/index',               
             ],
         ],
         

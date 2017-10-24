@@ -64,11 +64,22 @@ class BookController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Book();
+        $model = new Book(); 
         if ($model->load(Yii::$app->request->post())){
-                $model->file = UploadedFile::getInstance($model, 'file');
-                $model->file->saveAs($model->getFolder() . $model->file->name);
-                $model->file = $model->file->name;
+                if(UploadedFile::getInstance($model, 'file') && UploadedFile::getInstance($model, 'image')){
+                    $model->file = UploadedFile::getInstance($model, 'file');
+                    $model->image = UploadedFile::getInstance($model, 'image');
+
+                    $model->file->saveAs($model->getFolder() . $model->file->name);
+                    $model->image->saveAs($model->getFolderImage() . $model->image->name);
+
+                    $model->file = $model->file->name;
+                    $model->image = $model->image->name;
+                }else{
+                    return $this->render('create', [
+                        'model' => $model,
+                    ]);
+                }
 
                 $model->save(); 
 
@@ -93,9 +104,25 @@ class BookController extends Controller
 
         $model = $this->findModel($id);
         
-        if ($model->load(Yii::$app->request->post())&&$model->save()) {
-                    
-                    return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+                
+                if(!empty(UploadedFile::getInstance($model, 'file'))){
+                    $model->file = UploadedFile::getInstance($model, 'file');
+                    $model->file->saveAs($model->getFolder() . $model->file->name);
+                    $model->file = $model->file->name;
+                }else{
+                    $model->file = Book::getCurrentFile($model->id)[0];
+                }
+                if(!empty(UploadedFile::getInstance($model, 'image'))){
+                    $model->image = UploadedFile::getInstance($model, 'image');                
+                    $model->image->saveAs($model->getFolderImage() . $model->image->name);                
+                    $model->image = $model->image->name;
+                }else{
+                    $model->image =   Book::getCurrentImage($model->id)[0];
+                }
+                $model->save();
+
+                return $this->redirect(['view', 'id' => $model->id]);
                
         } else {
             
