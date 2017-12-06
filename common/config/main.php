@@ -5,9 +5,9 @@ return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'modules' => [
         'pages' => [
-                'class' => 'bupy7\pages\Module',
-                'tableName' => 'page',
-            ],
+            'class' => 'bupy7\pages\Module',
+            'tableName' => 'page',
+        ],       
     ],
     'components' => [
         'cache' => [

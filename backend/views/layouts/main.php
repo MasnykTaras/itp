@@ -41,6 +41,7 @@ AppAsset::register($this);
             ['label' => 'Post', 'url' => ['/post/index']],
             ['label' => 'Conferences', 'url' => ['/conferences/index']],
             ['label' => 'Book', 'url' => ['/book/index']],
+            ['label' => 'Page', 'url' => ['/page/index']],
         ];
     }
     if (Yii::$app->user->isGuest) {

@@ -20,9 +20,8 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "yiidoc/yii2-redactor": "dev-master",
         "2amigos/yii2-ckeditor-widget": "^1.0@dev",
-        "yii2mod/yii2-cms": "*",
         "kartik-v/yii2-widget-datepicker": "@dev",
-        "bupy7/yii2-pages": "*"   
+        "bupy7/yii2-pages": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
