@@ -4,6 +4,7 @@ namespace backend\models;
 
 use Yii;
 use \yii\db\ActiveRecord;
+use yii\web\view;
 
 /**
  * This is the model class for table "post".
@@ -19,6 +20,13 @@ use \yii\db\ActiveRecord;
  */
 class Post extends ActiveRecord
 {
+     public function behaviors( ) {
+        return [
+            [
+                'class' => 'sjaakp\sortable\Sortable',
+            ],
+        ];
+    }
     /**
      * @inheritdoc
      */
@@ -40,6 +48,7 @@ class Post extends ActiveRecord
         ];
     }
 
+   
     /**
      * @inheritdoc
      */
@@ -84,4 +93,6 @@ class Post extends ActiveRecord
                 ->queryColumn();
         // return Post::find()->select(['image'])->where([ 'id' => $id ])->column();
     }
+
+     
 }

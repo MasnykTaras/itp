@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use sjaakp\sortable\SortableGridView;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\PostSearch */
@@ -18,23 +19,22 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Create Post', ['create'], ['class' => 'btn btn-success']) ?>
         <?= Html::a('Create Category', ['//category/create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Refresh', ['index'], ['class' => 'btn btn-success btn-save']) ?>
     </p>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-            'image',
-            'id',
-            'title',
-            'user_id',
-            'created',
-            'category_id',
-            'status',
-            
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+    <?= SortableGridView::widget([
+            'dataProvider' => $dataProvider,
+            'orderUrl' => ['order'],
+            'columns' => [           
+                'order',
+                'image',
+                'id',
+                'title',
+                'user_id',
+                'created',
+                'category_id',
+                'status',
+            ],        
+        ]); 
+    ?>
 </div>

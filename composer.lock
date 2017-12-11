@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a83f0ab71ba42e2e10b1aa01b45d561",
+    "content-hash": "dc4f0209e7c78ffd9d712c6a435a8682",
     "packages": [
         {
             "name": "2amigos/yii2-ckeditor-widget",
@@ -200,6 +200,34 @@
                 "javascript",
                 "jquery",
                 "library"
+            ]
+        },
+        {
+            "name": "bower-asset/jquery-ui",
+            "version": "1.12.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/jqueryui.git",
+                "reference": "44ecf3794cc56b65954cc19737234a3119d036cc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/jqueryui/zipball/44ecf3794cc56b65954cc19737234a3119d036cc",
+                "reference": "44ecf3794cc56b65954cc19737234a3119d036cc",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.6"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "jquery-ui.js"
+                ],
+                "bower-asset-ignore": []
+            },
+            "license": [
+                "MIT"
             ]
         },
         {
@@ -569,6 +597,162 @@
             "time": "2017-09-06 06:18:08"
         },
         {
+            "name": "kotchuprik/yii2-sortable-widgets",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kotchuprik/yii2-sortable-widgets.git",
+                "reference": "cefe3784bbc72a641f574a922c68b4c16adfd1a8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kotchuprik/yii2-sortable-widgets/zipball/cefe3784bbc72a641f574a922c68b4c16adfd1a8",
+                "reference": "cefe3784bbc72a641f574a922c68b4c16adfd1a8",
+                "shasum": ""
+            },
+            "require": {
+                "npm-asset/sortablejs": "^1.6.1",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kotchuprik\\sortable\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Constantine Chuprik",
+                    "email": "constantinchuprik@gmail.com"
+                }
+            ],
+            "description": "Implementation Rubaxa/Sortable for Yii2. Sortable grid view inside.",
+            "homepage": "http://github.com/kotchuprik/yii2-sortable-widgets",
+            "keywords": [
+                "dnd",
+                "grid",
+                "gridview",
+                "jQueryUI",
+                "rubaxa",
+                "sortable",
+                "sorting",
+                "yii2"
+            ],
+            "time": "2017-11-29 04:12:23"
+        },
+        {
+            "name": "npm-asset/sortablejs",
+            "version": "1.7.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/sortablejs/-/sortablejs-1.7.0.tgz",
+                "reference": null,
+                "shasum": "80a2b2370abd568e1cec8c271131ef30a904fa28"
+            },
+            "require-dev": {
+                "npm-asset/grunt": "*",
+                "npm-asset/grunt-contrib-jshint": "*",
+                "npm-asset/grunt-contrib-uglify": "*",
+                "npm-asset/grunt-testcafe": ">=0.15.0,<0.16.0",
+                "npm-asset/grunt-version": "*",
+                "npm-asset/http-server": ">=0.9.0,<0.10.0",
+                "npm-asset/testcafe": ">=0.16.0,<0.17.0"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/rubaxa/Sortable/issues"
+                },
+                "npm-asset-files": [
+                    "Sortable.js",
+                    "Sortable.min.js"
+                ],
+                "npm-asset-main": "Sortable.js",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git://github.com/rubaxa/Sortable.git"
+                },
+                "npm-asset-scripts": {
+                    "test": "./node_modules/grunt/bin/grunt",
+                    "prepublish": "./node_modules/grunt/bin/grunt",
+                    "http-server": "http-server -s ./"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konstantin Lebedev",
+                    "email": "ibnRubaXa@gmail.com"
+                }
+            ],
+            "description": "Minimalist JavaScript library for reorderable drag-and-drop lists on modern browsers and touch devices. No jQuery. Supports AngularJS and any CSS library, e.g. Bootstrap.",
+            "homepage": "https://github.com/rubaxa/Sortable#readme",
+            "keywords": [
+                "angular",
+                "drag",
+                "meteor",
+                "mixin",
+                "ng-sortable",
+                "react",
+                "reorder",
+                "sortable"
+            ]
+        },
+        {
+            "name": "sjaakp/yii2-sortable-behavior",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sjaakp/yii2-sortable-behavior.git",
+                "reference": "e40d802e57c07610bbf2177635e6e2ba96e3ad46"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sjaakp/yii2-sortable-behavior/zipball/e40d802e57c07610bbf2177635e6e2ba96e3ad46",
+                "reference": "e40d802e57c07610bbf2177635e6e2ba96e3ad46",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*",
+                "yiisoft/yii2-jui": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "sjaakp\\sortable\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sjaak Priester",
+                    "email": "sjaak@sjaakpriester.nl",
+                    "homepage": "http://sjaakpriester.nl"
+                }
+            ],
+            "description": "Sort ActiveRecords and related records in Yii2.",
+            "keywords": [
+                "Behavior",
+                "extension",
+                "order",
+                "sort",
+                "widget",
+                "yii",
+                "yii2"
+            ],
+            "time": "2016-02-01 11:46:25"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "5.x-dev",
             "source": {
@@ -734,12 +918,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "b6a90bf8abacc6e2a7f74257d8c32485e7780976"
+                "reference": "170b1226fde4581fa5584464e464297dd8854b7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/b6a90bf8abacc6e2a7f74257d8c32485e7780976",
-                "reference": "b6a90bf8abacc6e2a7f74257d8c32485e7780976",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/170b1226fde4581fa5584464e464297dd8854b7c",
+                "reference": "170b1226fde4581fa5584464e464297dd8854b7c",
                 "shasum": ""
             },
             "require": {
@@ -826,7 +1010,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2017-12-02 15:24:56"
+            "time": "2017-12-11 10:18:59"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -923,6 +1107,52 @@
                 "yii2"
             ],
             "time": "2017-08-01 14:22:25"
+        },
+        {
+            "name": "yiisoft/yii2-jui",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-jui.git",
+                "reference": "c38da97a6266216c51cc56b02518ece84e0eea12"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-jui/zipball/c38da97a6266216c51cc56b02518ece84e0eea12",
+                "reference": "c38da97a6266216c51cc56b02518ece84e0eea12",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery-ui": "~1.12.1",
+                "yiisoft/yii2": "~2.0.4"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "yii\\jui\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Qiang Xue",
+                    "email": "qiang.xue@gmail.com"
+                }
+            ],
+            "description": "The Jquery UI extension for the Yii framework",
+            "keywords": [
+                "jQuery UI",
+                "yii2"
+            ],
+            "time": "2017-11-25 17:03:26"
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
@@ -1250,12 +1480,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "c1c7d5134635e944f467df45f5ff5feb1659e3bb"
+                "reference": "07201f7e54015f78b42eda26c7430212fa141928"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/c1c7d5134635e944f467df45f5ff5feb1659e3bb",
-                "reference": "c1c7d5134635e944f467df45f5ff5feb1659e3bb",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/07201f7e54015f78b42eda26c7430212fa141928",
+                "reference": "07201f7e54015f78b42eda26c7430212fa141928",
                 "shasum": ""
             },
             "require": {
@@ -1292,7 +1522,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-12-04 09:40:01"
+            "time": "2017-12-07 06:17:24"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -1452,12 +1682,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "e4ed002c67da8eceb0eb8ddb8b3847bb53c5c2bf"
+                "reference": "3d0b3928bb1f6b1046a4547e96da9397a165f10e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/e4ed002c67da8eceb0eb8ddb8b3847bb53c5c2bf",
-                "reference": "e4ed002c67da8eceb0eb8ddb8b3847bb53c5c2bf",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/3d0b3928bb1f6b1046a4547e96da9397a165f10e",
+                "reference": "3d0b3928bb1f6b1046a4547e96da9397a165f10e",
                 "shasum": ""
             },
             "require": {
@@ -1507,7 +1737,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2017-11-24 13:59:53"
+            "time": "2017-12-07 16:59:59"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -2462,12 +2692,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "46270f1ca44f08ebc134ce120fd2c2baf5fd63de"
+                "reference": "5c240cacee4430cf3ef5821f68ad2314dcdfec5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/46270f1ca44f08ebc134ce120fd2c2baf5fd63de",
-                "reference": "46270f1ca44f08ebc134ce120fd2c2baf5fd63de",
+                "url": "https://api.github.com/repos/symfony/console/zipball/5c240cacee4430cf3ef5821f68ad2314dcdfec5b",
+                "reference": "5c240cacee4430cf3ef5821f68ad2314dcdfec5b",
                 "shasum": ""
             },
             "require": {
@@ -2515,7 +2745,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-29 09:33:18"
+            "time": "2017-12-08 12:32:59"
         },
         {
             "name": "symfony/css-selector",
@@ -2523,12 +2753,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "b7b041487197fb6d803b7edbcaae7f00a793b1c4"
+                "reference": "99e25f619a370b9a803b7fbdbcf41c30549e92d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/b7b041487197fb6d803b7edbcaae7f00a793b1c4",
-                "reference": "b7b041487197fb6d803b7edbcaae7f00a793b1c4",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/99e25f619a370b9a803b7fbdbcf41c30549e92d3",
+                "reference": "99e25f619a370b9a803b7fbdbcf41c30549e92d3",
                 "shasum": ""
             },
             "require": {
@@ -2568,7 +2798,7 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-05 15:25:56"
+            "time": "2017-12-08 12:32:59"
         },
         {
             "name": "symfony/debug",
@@ -2689,12 +2919,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "b59aacf238fadda50d612c9de73b74751872a903"
+                "reference": "6bd742d35140bd6dc265bf9c198b88afff5afe0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/b59aacf238fadda50d612c9de73b74751872a903",
-                "reference": "b59aacf238fadda50d612c9de73b74751872a903",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/6bd742d35140bd6dc265bf9c198b88afff5afe0b",
+                "reference": "6bd742d35140bd6dc265bf9c198b88afff5afe0b",
                 "shasum": ""
             },
             "require": {
@@ -2741,7 +2971,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-05 15:25:56"
+            "time": "2017-12-08 12:32:59"
         },
         {
             "name": "symfony/finder",

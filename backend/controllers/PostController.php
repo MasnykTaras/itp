@@ -11,6 +11,7 @@ use yii\filters\VerbFilter;
 use backend\models\UploadForm;
 use yii\web\UploadedFile;
 use yii\filters\AccessControl;
+use yii\data\ActiveDataProvider;
 
 /**
  * PostController implements the CRUD actions for Post model.
@@ -57,13 +58,32 @@ class PostController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new PostSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        $dataProvider = new ActiveDataProvider( [
+            'query' => Post::find( )->orderBy( 'order' ),    // notice the orderBy clause
+            'sort' => false,
+            'pagination' => [
+                'pageSize' => 10,
+            ]
+        ] );
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
+            
             'dataProvider' => $dataProvider,
         ]);
+    }
+    public function actionOrder( ) {
+        $post = Yii::$app->request->post( );
+
+        if (isset( $post['key'], $post['pos'] ))   {
+            $model = $this->findModel( $post['key']);
+            $model->order( $post['pos'] );
+            
+            $model->order = $post['pos'];
+            $model->save();
+
+        }    
+
     }
 
     /**
@@ -167,4 +187,6 @@ class PostController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+    
 }
