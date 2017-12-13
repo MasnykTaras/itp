@@ -37,11 +37,11 @@ AppAsset::register($this);
     ]);
     if (!Yii::$app->user->isGuest) {
         $menuItems = [
-            ['label' => 'Home', 'url' => ['/site/main']],
             ['label' => 'Post', 'url' => ['/post/index']],
             ['label' => 'Conferences', 'url' => ['/conferences/index']],
             ['label' => 'Book', 'url' => ['/book/index']],
             ['label' => 'Page', 'url' => ['/page/index']],
+            ['label' => 'Static Page', 'url' => ['/static-page/index']],
         ];
     }
     if (Yii::$app->user->isGuest) {

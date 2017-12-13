@@ -24,6 +24,7 @@ class Post extends ActiveRecord
         return [
             [
                 'class' => 'sjaakp\sortable\Sortable',
+                'orderAttribute' => 'order',
             ],
         ];
     }

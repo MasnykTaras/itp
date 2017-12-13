@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function actionIndex()
     {	
-        $query = Post::find()->where(['status' => 1]);
+        $query = Post::find()->where(['status' => 1])->orderBy('order ASC');
         $countQuery = clone $query;
         $pages = new Pagination([
             'totalCount' => $countQuery->count(), 

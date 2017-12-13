@@ -25,6 +25,7 @@ use backend\models\Book;
         <?= Html::tag('p', Book::getCurrentFile($model->id)[0]) ?>
     <?php } ?>
     <?= $form->field($model, 'file')->fileInput() ?>
+    
     <?php if($model->id){ ?>
         <?= Html::img('/uploads/' . Book::getCurrentImage($model->id)[0], ['alt' => 'Image']) ?>
     <?php } ?>
