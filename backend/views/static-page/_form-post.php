@@ -14,7 +14,12 @@ use yii\helpers\Json;
 
     <? $array = Json::decode($model->content); ?>
 
-    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
+    <?php $form = ActiveForm::begin([
+
+            'options' => ['enctype' => 'multipart/form-data'], 
+            'validationUrl' => ['static-page/validate-email'],
+
+        ]); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 

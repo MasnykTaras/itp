@@ -100,7 +100,7 @@ class StaticPage extends \yii\db\ActiveRecord
     }
     public function getFormTemplate($model)
     {
-     return '_form-'.strtolower($model->getTemplateTitle($model->template));
+        return '_form-'.strtolower($model->getTemplateTitle($model->template));
     }
        
 }

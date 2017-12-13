@@ -12,7 +12,7 @@ use backend\models\StaticPage;
 
 <div class="static-page-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['validationUrl' => ['user/validate-email'], ]); ?>
 
     <?= $form->field($model, 'template')->dropDownList(ArrayHelper::map(StaticPage::getPageTemplate(),'id','title')) ?>
 

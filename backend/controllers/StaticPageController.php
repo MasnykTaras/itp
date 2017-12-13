@@ -162,4 +162,18 @@ class StaticPageController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+    public function actionValidateEmail()
+    {
+        // validate for ajax request
+        if (Yii::$app->request->isAjax) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+
+            $alias = new StaticPage();
+            $post = Yii::$app->request->post();
+            $alias->load($post);
+
+            return ActiveForm::validate($alias);
+        }       
+    }
 }
