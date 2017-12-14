@@ -5,6 +5,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\Menu;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
@@ -69,8 +71,9 @@ AppAsset::register($this);
                     'itemOptions'=>['class'=>'menu__item'],
                     'submenuTemplate' => "<ul class='menu__dropdown menu__dropdown_top dropdown' role='menu'>{items}</ul>",
                     'linkTemplate' => '<a class="menu__link" href="{url}">{label}</a>'
-            ]);
-                ?>
+            ]);         
+
+            ?>
             <div class="hamburger js-hamburger">
               <span class="hamburger__line"></span>
               <span class="hamburger__line"></span>

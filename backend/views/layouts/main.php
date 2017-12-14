@@ -42,6 +42,7 @@ AppAsset::register($this);
             ['label' => 'Book', 'url' => ['/book/index']],
             ['label' => 'Page', 'url' => ['/page/index']],
             ['label' => 'Static Page', 'url' => ['/static-page/index']],
+            ['label' => 'Menu', 'url' => ['/menu/creator']],
         ];
     }
     if (Yii::$app->user->isGuest) {

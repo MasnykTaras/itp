@@ -75,9 +75,13 @@ class StaticPageController extends Controller
 
         //create page whith Druft status
 
-        $model->status = 0;
+        if ($model->load(Yii::$app->request->post())) {
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $model->status = 0;
+
+            $model->alias = $model->getTemplateAlias($model->template);
+            
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -114,9 +118,6 @@ class StaticPageController extends Controller
                  $data['image'] = Json::decode($model->content)['image'];
 
             }
-
-           
-
             
            
             $data['main-text'] = Yii::$app->request->post()['main-text'];           
@@ -161,19 +162,5 @@ class StaticPageController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
-    }
-
-    public function actionValidateEmail()
-    {
-        // validate for ajax request
-        if (Yii::$app->request->isAjax) {
-            Yii::$app->response->format = Response::FORMAT_JSON;
-
-            $alias = new StaticPage();
-            $post = Yii::$app->request->post();
-            $alias->load($post);
-
-            return ActiveForm::validate($alias);
-        }       
     }
 }

@@ -7,7 +7,7 @@ return [
         'pages' => [
             'class' => 'bupy7\pages\Module',
             'tableName' => 'page',
-        ],       
+        ],               
     ],
     'components' => [
         'cache' => [

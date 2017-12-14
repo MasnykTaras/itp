@@ -38,17 +38,18 @@ return [
             'errorAction' => 'site/error',
         ],
             'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'enableStrictParsing' => false,
-            'rules' => [
-                // '' => 'site/index',                                
-                // '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
-                // '<alias:index|about|contact|book|login|signup>' => 'site/<alias>',          
-                // 'post/<id:(\d+)>' => 'post/one', 
-                // 'conference/<date:(\d+)>' => 'conference/index',               
+                'enablePrettyUrl' => true,
+                'showScriptName' => false,
+                'enableStrictParsing' => false,
+                'rules' => [
+                  
+                    'conference' => 'conference/index',
+                    '<controller:\w+>/<id:(\d+)>/' => '<controller>/one',                                                   
+                    '<controller:\w+>/' => '<controller>/index',
+                    '<alias:index|about|contact|book|login|signup>' => 'site/<alias>',          
+                                   
+                ],
             ],
-        ],
         
     ],
     'params' => $params,

@@ -36,6 +36,7 @@ class StaticPage extends \yii\db\ActiveRecord
             [['content'], 'string'],
             [['status', 'template'], 'integer'],
             [['title', 'alias'], 'string', 'max' => 255],
+            [['alias'], 'unique'],
         ];
     }
 
@@ -56,11 +57,11 @@ class StaticPage extends \yii\db\ActiveRecord
     public static function getPageTemplate()
     {
         return [
-            ['id' => 0, 'title' => 'Post'],
-            ['id' => 1, 'title' => 'Main'],
-            ['id' => 2, 'title' => 'About'],
-            ['id' => 3, 'title' => 'Book'],
-            ['id' => 4, 'title' => 'Contact'],
+            ['id' => 0, 'title' => 'Post' , 'alias' => 'post'],
+            ['id' => 1, 'title' => 'Main', 'alias' => 'main'],
+            ['id' => 2, 'title' => 'About', 'alias' => 'about'],
+            ['id' => 3, 'title' => 'Book', 'alias' => 'book'],
+            ['id' => 4, 'title' => 'Contact', 'alias' => 'contact'],
         ];
     }
     public function getTemplateTitle($id)
@@ -70,6 +71,12 @@ class StaticPage extends \yii\db\ActiveRecord
         return $templates[$id]['title'];
     }   
 
+    public function getTemplateAlias($id)
+    {
+        $templates = StaticPage::getPageTemplate(); 
+
+        return $templates[$id]['alias'];
+    }
     /**
      * Get folder to upload book file
      * @return str

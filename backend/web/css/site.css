@@ -101,6 +101,10 @@ a.desc:after {
     border: none;
 }
 
+.preview__image{
+    width: 320px;
+}
+
 @media(max-width:767px) {
     .nav li > form > button.logout {
         display:block;

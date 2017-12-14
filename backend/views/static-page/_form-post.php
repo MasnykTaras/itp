@@ -17,14 +17,11 @@ use yii\helpers\Json;
     <?php $form = ActiveForm::begin([
 
             'options' => ['enctype' => 'multipart/form-data'], 
-            'validationUrl' => ['static-page/validate-email'],
 
         ]); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'alias')->textInput(['maxlength' => true]) ?>
-
+    
     <?= $form->field($model, 'status')->dropDownList(ArrayHelper::map($model->getStatus(),'id','title')) ?>
 
     <div class="form-group">
@@ -37,7 +34,7 @@ use yii\helpers\Json;
    
     <?php if(!empty($array['image'])){ ?>
     <div class="form-group">
-        <?= Html::img('/uploads/' . $array['image'], ['alt' => 'Image']) ?>
+        <?= Html::img('/uploads/' . $array['image'], ['class' => 'preview__image' ,'alt' => 'Image']) ?>
     </div>
     <?php } ?>
    

@@ -15,6 +15,7 @@ use frontend\models\ContactForm;
 use frontend\models\SubscribeForm;
 use app\models\Post;
 use app\models\Book;
+use zacksleo\menu\models\Model;
 
 /**
  * Site controller
@@ -81,6 +82,7 @@ class SiteController extends Controller
         $posts = new Post;
 
         $books = new Book;
+
 
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
