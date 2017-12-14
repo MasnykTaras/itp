@@ -19,7 +19,7 @@
         <div class="l-content">
           <div class="publications__content">
             <div class="publications__title">
-              <h1>Литература</h1>              
+              <h1><?php echo $content['title']; ?></h1>              
               <div class="publications__sort">
                 <a class="js-sortLinkDropdown" ><?php if($data){ echo $data; }else{ echo 'All'; } ?></a>
                 <ul class="publications__dropdown dropdown">
@@ -28,7 +28,7 @@
                       <a class="dropdown__link dropdown__link_big" href="<?= Url::to(['conference/index']); ?>" data-date="" >All</a>
                     </li>
                   <?php endif; ?>
-                  <?php foreach(Conference::createDateArrat() as $value): ?>
+                  <?php foreach(Conference::createDateArray() as $value): ?>
                     <li class="dropdown__item js-sortItemDropdown">
                       <a class="dropdown__link dropdown__link_big" href="<?= Url::to(['conference/index', 'data' => $value ]); ?>" data-date="<?= $value; ?>" ><?= $value; ?></a>
                     </li>
@@ -36,7 +36,7 @@
                 </ul>
               </div>
             </div>
-            <p class="conferences__text">Предварительное напряжение железобетонных конструкций строений посредством высокопрочной арматурой (канат, армоканат). Преднапряженная конструкция обладает рядом преимуществ: она несет проектную нагрузку при меньшем расходе бетона и арматуры.</p>
+            <p class="conferences__text"><?php echo $content['text']; ?></p>
               <ul class="conferences__items">
                 <?php foreach($conferences as $conference): ?>
                 	<div class="conferences__item post">

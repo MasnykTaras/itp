@@ -15,6 +15,7 @@ class PostController extends Controller
      */
     public function actionIndex()
     {	
+        $posts = new Post;
         $query = Post::find()->where(['status' => 1])->orderBy('order ASC');
         $countQuery = clone $query;
         $pages = new Pagination([
@@ -24,8 +25,9 @@ class PostController extends Controller
             'forcePageParam' => false, 
             ]);
         $models = $query->offset($pages->offset)->limit($pages->limit)->all();
-    	$posts = new Post;
-        return $this->render('index', ['posts' =>  $models, 'pages' => $pages, ]);
+    	
+        $content = $posts->getContent();
+        return $this->render('index', ['posts' =>  $models, 'pages' => $pages, 'content' => $content]);
     }
      /**
      * Lists One Post models.

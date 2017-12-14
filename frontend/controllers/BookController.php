@@ -10,8 +10,9 @@ class BookController extends \yii\web\Controller
 {   
     public function actionIndex()
     {
-
-    	$query = Book::viewAll();
+        $book = new Book;
+        $content = $book->getContent();
+    	$query = $book->viewAll();
         $countQuery = clone $query;
         $pages = new Pagination([
             'totalCount' => $countQuery->count(), 
@@ -21,7 +22,7 @@ class BookController extends \yii\web\Controller
             ]);
         $models = $query->offset($pages->offset)->limit($pages->limit)->all();
     	
-        return $this->render('index', ['books' =>  $models, 'pages' => $pages, ]);
+        return $this->render('index', ['books' =>  $models, 'pages' => $pages, 'content' => $content ]);
     }
     public function actionOne($id)
     {

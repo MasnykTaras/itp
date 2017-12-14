@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\Json;
 
 /**
  * This is the model class for table "conferences".
@@ -73,7 +74,7 @@ class Conference extends \yii\db\ActiveRecord
                 ->createCommand('SELECT start_in AS data FROM conferences ORDER BY start_in')
                 ->queryAll();
     }
-    public static function createDateArrat()
+    public static function createDateArray()
     {
         $archive = self::getDateArchive();
         $dateArchive = array();
@@ -85,5 +86,22 @@ class Conference extends \yii\db\ActiveRecord
 
         return array_unique($dateArchive);
        
+    }
+
+    private static function getStaticPageData()
+    {
+        return Yii::$app->db
+            ->createCommand('SELECT * FROM static_page WHERE alias = "public"')
+            ->queryAll();
+    }
+    public function getContent()
+    {
+        $data = self::getStaticPageData()[0];
+        
+        return [
+            'title' =>  $data['title'],
+            'image' => Json::decode($data['content'])['image'],
+            'text' => Json::decode($data['content'])['main-text'],
+        ];
     }
 }

@@ -122,7 +122,7 @@ class StaticPageController extends Controller
            
             $data['main-text'] = Yii::$app->request->post()['main-text'];           
 
-            $model->content = Json::encode($data);;
+            $model->content = Json::encode($data);
         
             $model->save();
 

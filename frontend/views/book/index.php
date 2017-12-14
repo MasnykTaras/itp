@@ -18,8 +18,8 @@
        
         <div class="l-content">
          <div class="literatureList__content">
-            <h1 class="literatureList__title">Литература</h1>
-            <p class="literatureList__text">Предварительное напряжение железобетонных конструкций строений посредством высокопрочной арматурой (канат, армоканат). Преднапряженная конструкция обладает рядом преимуществ: она несет проектную нагрузку при меньшем расходе бетона и арматуры.</p>
+            <h1 class="literatureList__title"><?php echo $content['title']; ?></h1>
+            <p class="literatureList__text"><?php echo $content['text']; ?></p>
                 <ul class="literatureList__items">
 
                 <?php foreach($books as $book): ?>

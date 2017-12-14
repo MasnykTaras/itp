@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\Json;
 
 /**
  * This is the model class for table "book".
@@ -69,7 +70,7 @@ class Book extends \yii\db\ActiveRecord
 
         // return self::find()->where([ 'status' => 1 ])->orderBy('id')->limit(self::BOOK)->all();
     }
-    public static function viewAll()
+    public function viewAll()
     {
         return self::find()->where(['status' => 1]);
     }
@@ -145,5 +146,22 @@ class Book extends \yii\db\ActiveRecord
             ->bindValue(':status', 1)
             ->queryColumn();
         // return self::find()->select('book_category_id')->where(['status' => 1, 'id' => $id ])->one();
+    }
+
+    private static function getStaticPageData()
+    {
+        return Yii::$app->db
+            ->createCommand('SELECT * FROM static_page WHERE alias = "book"')
+            ->queryAll();
+    }
+    public function getContent()
+    {
+        $data = self::getStaticPageData()[0];
+        
+        return [
+            'title' =>  $data['title'],
+            'image' => Json::decode($data['content'])['image'],
+            'text' => Json::decode($data['content'])['main-text'],
+        ];
     }
 }

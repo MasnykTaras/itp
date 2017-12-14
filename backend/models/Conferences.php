@@ -78,4 +78,5 @@ class Conferences extends \yii\db\ActiveRecord
                 ->queryColumn();
         // return self::find()->select(['image'])->where([ 'id' => $id ])->column();
     }
+    
 }

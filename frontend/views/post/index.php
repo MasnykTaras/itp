@@ -17,7 +17,7 @@
         <div class="l-content">
           <div class="publications__content">
             <div class="publications__title">
-              <h1>Публикации</h1>
+              <h1><?php echo $content['title']; ?></h1>
               <div class="publications__sort">
                 <a class="js-sortLinkDropdown">04.2017</a>
                 <ul class="publications__dropdown dropdown">
@@ -27,7 +27,7 @@
                 </ul>
               </div>
             </div>
-            <p class="publications__text">Предварительное напряжение железобетонных конструкций строений посредством высокопрочной арматурой (канат, армоканат). Преднапряженная конструкция обладает рядом преимуществ: она несет проектную нагрузку при меньшем расходе бетона и арматуры.</p>
+            <p class="publications__text"><?php echo $content['text']; ?></p>
             <div class="publications__items">
             <?php foreach($posts as $post ): ?> 
               

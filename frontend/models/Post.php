@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\db\ActiveRecord;
+use yii\helpers\Json;
 
 /**
  * This is the model class for table "post".
@@ -100,5 +101,21 @@ class Post extends ActiveRecord
         if($record!==null)
             return $record->id;
         return null;
+    }
+    private static function getStaticPageData()
+    {
+        return Yii::$app->db
+            ->createCommand('SELECT * FROM static_page WHERE alias = "post"')
+            ->queryAll();
+    }
+    public function getContent()
+    {
+        $data = self::getStaticPageData()[0];
+        
+        return [
+            'title' =>  $data['title'],
+            'image' => Json::decode($data['content'])['image'],
+            'text' => Json::decode($data['content'])['main-text'],
+        ];
     }
 }

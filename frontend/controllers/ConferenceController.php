@@ -55,9 +55,11 @@ class ConferenceController extends Controller
                 ->bindValue(':limit', $pages->limit)
                 ->bindValue(':offset', $pages->offset)
                 ->queryAll();
-        }       
-    	
-        return $this->render('index', ['conferences' =>  $models, 'pages' => $pages, 'data' => $data]);
+        }    
+        $conf = new Conference();
+           
+    	$content = $conf->getContent();
+        return $this->render('index', ['conferences' =>  $models, 'pages' => $pages, 'data' => $data, 'content' => $content ]);
     }
      /**
      * Lists One Post models.
