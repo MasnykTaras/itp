@@ -19,6 +19,7 @@
         <div class="l-content">
          <div class="literatureList__content">
             <h1 class="literatureList__title"><?php echo $content['title']; ?></h1>
+            <div class="aboutExpanded__img prevuiw_image" style="background-image: url(/uploads/<?= $content['image']; ?>);"></div>
             <p class="literatureList__text"><?php echo $content['text']; ?></p>
                 <ul class="literatureList__items">
 

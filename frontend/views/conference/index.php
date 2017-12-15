@@ -36,6 +36,7 @@
                 </ul>
               </div>
             </div>
+            <div class="aboutExpanded__img prevuiw_image" style="background-image: url(/uploads/<?= $content['image']; ?>);"></div>
             <p class="conferences__text"><?php echo $content['text']; ?></p>
               <ul class="conferences__items">
                 <?php foreach($conferences as $conference): ?>

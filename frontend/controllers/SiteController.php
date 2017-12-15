@@ -15,7 +15,8 @@ use frontend\models\ContactForm;
 use frontend\models\SubscribeForm;
 use app\models\Post;
 use app\models\Book;
-use zacksleo\menu\models\Model;
+use app\models\Site;
+
 
 /**
  * Site controller
@@ -84,6 +85,9 @@ class SiteController extends Controller
         $books = new Book;
 
 
+        $site = new Site();
+
+        $contentAbout = $site->getContent('about');        
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
            $model->email = $_POST['SubscribeForm']['email'];
@@ -99,6 +103,7 @@ class SiteController extends Controller
                 'model' => $model,
                 'posts' => $posts->getNewPost(),
                 'books' =>  $books->getNewBook(),
+                'contentAbout' =>  $contentAbout,
             ]);
     }
 
@@ -165,8 +170,9 @@ class SiteController extends Controller
      * @return mixed
      */
     public function actionAbout()
-    {
-        return $this->render('about');
+    {   $site = new Site();
+        $content = $site->getContent('about');
+        return $this->render('about', ['content' => $content]);
     }
 
     /**

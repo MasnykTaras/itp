@@ -42,11 +42,11 @@ return [
                 'showScriptName' => false,
                 'enableStrictParsing' => false,
                 'rules' => [
-                  
+                    '<alias:index|about|contact|login|signup>' => 'site/<alias>', 
                     'conference' => 'conference/index',
                     '<controller:\w+>/<id:(\d+)>/' => '<controller>/one',                                                   
                     '<controller:\w+>/' => '<controller>/index',
-                    '<alias:index|about|contact|book|login|signup>' => 'site/<alias>',          
+                             
                                    
                 ],
             ],

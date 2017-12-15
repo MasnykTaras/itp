@@ -10,6 +10,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
+use app\models\Site;
 
 AppAsset::register($this);
 ?>
@@ -71,8 +72,9 @@ AppAsset::register($this);
                     'itemOptions'=>['class'=>'menu__item'],
                     'submenuTemplate' => "<ul class='menu__dropdown menu__dropdown_top dropdown' role='menu'>{items}</ul>",
                     'linkTemplate' => '<a class="menu__link" href="{url}">{label}</a>'
-            ]);         
-
+            ]);   
+                $site = new Site();      
+                $contentMain = $site->getContent('main');
             ?>
             <div class="hamburger js-hamburger">
               <span class="hamburger__line"></span>
@@ -83,10 +85,10 @@ AppAsset::register($this);
           <div class="header__content">
             <div class="header__info">
               <h1 class="header__title">Институт Технологий<br>Преднапряжения</h1>
-              <p class="header__text">Предварительное напряжение железобетонных конструкций строений посредством высокопрочной арматурой (канат, армоканат). Преднапряженная конструкция обладает рядом преимуществ: она несет проектную нагрузку при меньшем расходе бетона и арматуры.
+              <p class="header__text"><?= $contentMain['text']; ?>
               </p>
             </div>
-            <div class="header__img" style="background-image: url(img/header-img.png);"></div>
+            <div class="header__img" style="background-image: url(/uploads/<?= $contentMain['image']; ?>);"></div>
           </div>
         </div>
     </div>

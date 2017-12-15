@@ -27,7 +27,9 @@
                 </ul>
               </div>
             </div>
+            <div class="aboutExpanded__img prevuiw_image" style="background-image: url(/uploads/<?= $content['image']; ?>);"></div>
             <p class="publications__text"><?php echo $content['text']; ?></p>
+
             <div class="publications__items">
             <?php foreach($posts as $post ): ?> 
               

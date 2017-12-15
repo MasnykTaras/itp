@@ -25,11 +25,12 @@ $this->title = 'My Yii Application';?>
         </ul>
         <div class="l-content">
           <div class="about__content">
-            <div class="about__img" style="background-image: url(img/video.png);"></div>
+            <div class="about__img" style="background-image: url(/uploads/<?= $contentAbout['image']; ?>);"></div>
             <div class="about__info">
               <div class="about__wrapper">
                 <h2 class="about__title">Об институте</h2>
-                <p class="about__text">Предварительное напряжение железобетонных конструкций строений посредством высокопрочной арматурой (канат, армоканат). Преднапряженная конструкция обладает рядом преимуществ: она несет проектную нагрузку при меньшем расходе бетона и арматуры. Услуги:
+                <p class="about__text"><?= $contentAbout['text']; ?>
+                 Услуги:
                 </p>
                 <div class="about__service">
                   <a href="engineering.html" class="about__link">Проектирование</a>

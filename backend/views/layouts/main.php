@@ -40,7 +40,7 @@ AppAsset::register($this);
             ['label' => 'Post', 'url' => ['/post/index']],
             ['label' => 'Conferences', 'url' => ['/conferences/index']],
             ['label' => 'Book', 'url' => ['/book/index']],
-            ['label' => 'Page', 'url' => ['/page/index']],
+            ['label' => 'Services', 'url' => ['/page/index']],
             ['label' => 'Static Page', 'url' => ['/static-page/index']],            
         ];
     }
