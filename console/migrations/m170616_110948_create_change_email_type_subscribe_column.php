@@ -11,9 +11,7 @@ class m170616_110948_create_change_email_type_subscribe_column extends Migration
 
     public function safeDown()
     {
-        echo "m170616_110948_create_change_email_type_subscribe_column cannot be reverted.\n";
-
-        return false;
+       $this->dropColumn('subscribe', 'email');
     }
 
     /*

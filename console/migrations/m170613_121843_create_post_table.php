@@ -10,7 +10,7 @@ class m170613_121843_create_post_table extends Migration
     /**
      * @inheritdoc
      */
-    public function up()
+    public function safeUp()
     {
         $this->createTable('post', [
             'id' => $this->primaryKey(),
@@ -27,7 +27,7 @@ class m170613_121843_create_post_table extends Migration
     /**
      * @inheritdoc
      */
-    public function down()
+    public function safeDown()
     {
         $this->dropTable('post');
     }

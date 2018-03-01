@@ -20,9 +20,7 @@ class m171212_101612_create_column_static_page_template extends Migration
      */
     public function safeDown()
     {
-        echo "m171212_101612_create_column_static_page_template cannot be reverted.\n";
-
-        return false;
+        $this->dropColumn('static_page', 'template');
     }
 
     /*

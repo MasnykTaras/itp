@@ -10,7 +10,7 @@ class m170821_080341_create_conferences_table extends Migration
     /**
      * @inheritdoc
      */
-    public function up()
+    public function safeUp()
     {
         $this->createTable('conferences', [
             'id' => $this->primaryKey(),
@@ -27,7 +27,7 @@ class m170821_080341_create_conferences_table extends Migration
     /**
      * @inheritdoc
      */
-    public function down()
+    public function safeDown()
     {
         $this->dropTable('conferences');
     }

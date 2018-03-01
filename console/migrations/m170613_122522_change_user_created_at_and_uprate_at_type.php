@@ -8,17 +8,15 @@ class m170613_122522_change_user_created_at_and_uprate_at_type extends Migration
 
     
     // Use up()/down() to run migration code without a transaction.
-    public function up()
+    public function safeUp()
     {   
         $this->alterColumn('user', 'created_at', 'date');        
 
     }
 
-    public function down()
+    public function safeDown()
     {
-        echo "m170613_122522_change_user_created_at_and_uprate_at_type cannot be reverted.\n";
-
-        return false;
+        $this->dropColumn('user', 'created_at');
     }
     
 }

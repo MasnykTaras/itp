@@ -14,8 +14,6 @@ class m171211_103222_add_order_column_post extends Migration
 
     public function down()
     {
-        echo "m171211_103222_add_order_column_post cannot be reverted.\n";
-
-        return false;
+      $this->dropColumn('post', 'order');
     }
 }

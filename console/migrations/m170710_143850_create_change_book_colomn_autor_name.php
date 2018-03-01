@@ -13,9 +13,7 @@ class m170710_143850_create_change_book_colomn_autor_name extends Migration
 
     public function down()
     {
-        echo "m170710_143850_create_change_book_colomn_autor_name cannot be reverted.\n";
-
-        return false;
+       $this->dropColumn('book', 'author');
     }
    
 }

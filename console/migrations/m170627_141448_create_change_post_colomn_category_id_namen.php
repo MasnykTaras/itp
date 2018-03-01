@@ -14,8 +14,6 @@ class m170627_141448_create_change_post_colomn_category_id_namen extends Migrati
 
     public function down()
     {
-        echo "m170627_141448_create_change_post_colomn_category_id_namen cannot be reverted.\n";
-
-        return false;
+      $this->dropColumn('post', 'category_id');
     }
 }

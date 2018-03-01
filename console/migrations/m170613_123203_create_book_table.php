@@ -10,7 +10,7 @@ class m170613_123203_create_book_table extends Migration
     /**
      * @inheritdoc
      */
-    public function up()
+    public function safeUp()
     {
         $this->createTable('book', [
             'id' => $this->primaryKey(),
@@ -27,7 +27,7 @@ class m170613_123203_create_book_table extends Migration
     /**
      * @inheritdoc
      */
-    public function down()
+    public function safeDown()
     {
         $this->dropTable('book');
     }

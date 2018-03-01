@@ -11,9 +11,7 @@ class m170613_123035_change_user_uprate_at_type extends Migration
 
     public function safeDown()
     {
-        echo "m170613_123035_change_user_uprate_at_type cannot be reverted.\n";
-
-        return false;
+        $this->dropColumn('user', 'updated_at');
     }
 
     /*
